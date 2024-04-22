@@ -18,9 +18,6 @@ export default function Signup() {
     }
     }
 
-   
-
-
     return (
         <form className="signup" onSubmit={signUp}>
         <h1>Sign Up</h1>
