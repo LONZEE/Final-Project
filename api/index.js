@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 const app = express();
+const jwt = require('jsonwebtoken');
+const secret = 'wakandaforever';
 
 const salt = bcrypt.genSaltSync(10);
 
@@ -28,10 +30,17 @@ app.post('/signup', async (req,res) => {
 
 app.post('/login', async (req,res) => {
     const {username, password} = req.body;
-    const userDoc = await User.findOne({username: username});
-    res.json(userDoc);
-}
-);
+    const userDoc = await User.findOne({username});
+    const passOK= bcrypt.compareSync(password, userDoc.password);
+    if (passOK){
+        jwt.sign({username, id:userDoc._id}, 'secret',{},(err,token) => {
+            if (err) throw err;
+            res.json(token);
+        }   );
+    } else {
+        res.status(400).json({message: 'Invalid password'});
+    }
+});
 
 
 app.listen(4000);
