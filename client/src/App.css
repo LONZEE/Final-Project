@@ -38,7 +38,7 @@ div.hero{
   margin-bottom: 20px;
 }
 div.hero div.image{
-  width: 900%;
+  /* width: 900%; */
 }
 div.hero div.text h2{
   margin: 0;
