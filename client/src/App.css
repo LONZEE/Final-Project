@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 body{
  color: #333;
 }
@@ -57,6 +60,34 @@ div.hero p.summary{
  line-height: 1.5rem;
 }
 
+form.login, form.signup{
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+input{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+
+}
+button{
+  display: block;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  background-color: #001aff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+form h1{
+  text-align: center;
+}
 
 /* .App {
   text-align: center;
