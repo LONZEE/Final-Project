@@ -6,11 +6,13 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const jwt = require('jsonwebtoken');
 const secret = 'wakandaforever';
+const cookieParser = require('cookie-parser');
 
 const salt = bcrypt.genSaltSync(10);
 
 app.use(cors({credentials:true,origin:'http://localhost:3000'}));            // This is a middleware that allows us to make requests from a different domain
-app.use(express.json());        // This is a middleware that allows us to parse JSON data from the client
+app.use(express.json());
+app.use(cookieParser);        // This is a middleware that allows us to parse JSON data from the client
 
 
 mongoose.connect('mongodb+srv://LONZEE:YKO2YsVqA1sYHqRE@charity.zdmunij.mongodb.net/?retryWrites=true&w=majority&appName=Charity');  
@@ -42,5 +44,6 @@ app.post('/login', async (req,res) => {
     }
 });
 
-
+app.get('/profile', (req,res) => {
+    res.json(req.cookies);
 app.listen(4000);
