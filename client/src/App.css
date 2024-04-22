@@ -6,14 +6,16 @@ img{
 }
 main{
   padding: 20px;
-  max-width: 600px;
+  max-width: 800px;
   margin:0 auto;
 }
 
 header{
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
   margin-bottom: 50px;
+  align-items: center;
 }
  header a{
   text-decoration: none;
@@ -22,25 +24,37 @@ header{
 
 header a.logo{
   font-weight: bold;
+  font-size: 2rem;
 }
 header nav{
   display: flex;
   gap: 10px;
 }
+
 div.hero{
-  display: flex;
-}
-div.post{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  margin-bottom: 20px;
 }
-div.post div.image{
-  width: 600%;
+div.hero div.image{
+  width: 900%;
 }
-div.post div.texts h2{
+div.hero div.text h2{
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.6rem;
+}
+div.hero p.info{
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #001aff;
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+}
+div.hero p.summary{
+ margin: 10px 0;
+ line-height: 1.5rem;
 }
 
 
