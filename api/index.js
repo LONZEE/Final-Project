@@ -9,7 +9,7 @@ const secret = 'wakandaforever';
 
 const salt = bcrypt.genSaltSync(10);
 
-app.use(cors());            // This is a middleware that allows us to make requests from a different domain
+app.use(cors({credentials:true,origin:'http://localhost:3000'}));            // This is a middleware that allows us to make requests from a different domain
 app.use(express.json());        // This is a middleware that allows us to parse JSON data from the client
 
 
@@ -35,7 +35,7 @@ app.post('/login', async (req,res) => {
     if (passOK){
         jwt.sign({username, id:userDoc._id}, 'secret',{},(err,token) => {
             if (err) throw err;
-            res.json(token);
+            res.cookie('token',token).json('ok');
         }   );
     } else {
         res.status(400).json({message: 'Invalid password'});
